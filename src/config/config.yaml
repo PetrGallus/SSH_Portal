@@ -1,0 +1,14 @@
+default_ssh:
+  username: "your_username"
+  password_or_key_path: "/path/to/your/private/key"
+  port: 22
+  timeout: 30
+
+vm_settings:
+  default_vm_image: "ubuntu-20.04"
+  default_vm_size: "medium"
+  max_vms: 10
+
+logging:
+  level: "INFO"
+  log_file: "/var/log/ssh_portal.log"

@@ -1,0 +1,5 @@
+RocketChat:
+  ip_address: 9.223.33.242
+  key_type: pem
+  password_or_key_path: ~/.ssh/AZURE_PG_key.pem
+  username: dev

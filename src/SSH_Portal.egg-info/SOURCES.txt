@@ -1,0 +1,8 @@
+README.md
+setup.py
+src/SSH_Portal.egg-info/PKG-INFO
+src/SSH_Portal.egg-info/SOURCES.txt
+src/SSH_Portal.egg-info/dependency_links.txt
+src/SSH_Portal.egg-info/entry_points.txt
+src/SSH_Portal.egg-info/requires.txt
+src/SSH_Portal.egg-info/top_level.txt

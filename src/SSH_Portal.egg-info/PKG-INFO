@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: SSH-Portal
+Version: 0.1.0
+Summary: A tool for managing and connecting to virtual machines via SSH.
+Author: Petr Gallus
+Author-email: gallus-petr@pm.me
