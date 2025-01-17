@@ -1,19 +1,21 @@
-# SSH Portal
+# 🚀 SSH Portal
 
 SSH Portal is a command-line tool designed to simplify the management and connection to virtual machines (VMs) via SSH. This tool provides an intuitive menu-driven interface for users to create, manage, and connect to VMs with ease.
 
-## Features
+## ✨ Features
 
-- Create new virtual machines.
-- Manage existing virtual machines (edit, delete, group).
-- Connect to virtual machines using SSH with options for IP address, username, and password or SSH key path.
+- 🖥️ Create new SSH connections.
+- 🔧 Manage existing SSH connections (edit, delete, group).
+- 🔐 Connect to VMs using SSH with options for IP address, username, and password or SSH key.
+  - currently supported SSH keys:
+    - pem, rsa, dsa, ed25519
 
-## Requirements
+## 📋 Requirements
 
-- Python 3.6+
-- `pip` (Python package installer)
+- 🐍 Python 3.6+
+- 📦 `pip` (Python package installer)
 
-## Installation
+## 📦 Installation
 
 ### Step 1: Clone the Repository
 
@@ -71,25 +73,27 @@ python src/main.py
 
 Once the application is running, you will be presented with a menu that allows you to:
 
-[1] Create a new VM
-[2] Manage existing VMs
-[3] Connect to a VM
+[1] Create a new connection
+[2] Manage existing connections
+[3] Connect
 
 Follow the prompts to perform the desired actions.
 
-## Configuration
+## ⚙️ Configuration
 
 The application uses a configuration file located at `src/config/config.yaml`. You can modify this file to set default SSH parameters and other necessary settings for managing your VMs.
 
-## Dependencies
+## 📚 Dependencies
 
-- paramiko: For SSH connections.
-- PyYAML: For parsing YAML configuration files.
+| Package   | Description                           |
+|-----------|---------------------------------------|
+| paramiko  | For SSH connections.                  |
+| PyYAML    | For parsing YAML configuration files. |
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue for any enhancements or bug fixes.
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
