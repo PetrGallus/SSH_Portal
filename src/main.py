@@ -7,7 +7,7 @@ def load_config(config_path):
         return yaml.safe_load(file)
 
 def main():
-    config = load_config('src/config/config.yaml')
+    config = load_config('config/config.yaml')
     ssh_manager = SSHManager(config)
     
     while True:

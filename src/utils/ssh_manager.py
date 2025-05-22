@@ -1,6 +1,7 @@
 import paramiko
 import yaml
 import os
+import re
 
 class SSHManager:
     def __init__(self, config=None):
@@ -10,6 +11,8 @@ class SSHManager:
         self.load_vms()
 
     def create_vm(self, name, ip_address, username, password_or_key_path, key_type=None):
+        if not self.is_valid_ipv4(ip_address):
+            raise ValueError("Invalid IPv4 address format.")
         self.vms[name] = {
             'ip_address': ip_address,
             'username': username,
@@ -17,6 +20,12 @@ class SSHManager:
             'key_type': key_type
         }
         self.save_vms()
+
+    def is_valid_ipv4(self, ip):
+        pattern = re.compile(r"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$")
+        if pattern.match(ip):
+            return all(0 <= int(num) <= 255 for num in ip.split('.'))
+        return False
 
     def save_vms(self):
         with open(self.vms_file, 'w') as file:

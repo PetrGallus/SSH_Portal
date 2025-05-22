@@ -55,7 +55,12 @@ def display_menu(ssh_manager):
 
 def create_ssh_connection(ssh_manager):
     name = input("Enter Name for your SSH Connection: ")
-    ip_address = input("Enter IP address: ")
+    while True:
+        ip_address = input("Enter IP address: ")
+        if ssh_manager.is_valid_ipv4(ip_address):
+            break
+        else:
+            print("Invalid IPv4 address format. Please try again.")
     username = input("Enter username for login: ")
     password_or_key_path = input("Enter password or path to SSH key: ")
     key_type = input("Enter key type (pem, rsa, dsa, ed25519) or leave blank for password: ")
@@ -205,19 +210,26 @@ def connect_to_vm(ssh_manager):
                 print_section_header("Interactive SSH Session")
                 print("Type your commands below.")
                 try:
+                    #inicializace shellu
+                    command = ''
+                    channel.send(command + '\n')
+                    output = channel.recv(32000).decode('utf-8')
+                    print(output, end='')
+                    output = ''
                     while True:
-                        command = input(f"{vm['username']}@{name}:~$ ")
+                        #command = input(f"{vm['username']}@{name}:~$ ")
+                        command = input()
                         if command.lower() in ["exit", "quit"]:
                             break
                         channel.send(command + "\n")
                         time.sleep(0.25)  # Small delay to ensure the command is processed
                         output = ""
                         while channel.recv_ready():
-                            output += channel.recv(1024).decode('utf-8')
+                            output += channel.recv(4096).decode('utf-8') #recieve ma doceela malo bytu
                         # Remove the echoed command from the output
-                        if output.startswith(command):
-                            output = output[len(command):].strip()
-                        print(output) 
+                        #if output.startswith(command):
+                        #    output = output[len(command):].strip()
+                        print(output, end = '') 
                 except KeyboardInterrupt:
                     print("Closing connection.")
                 finally:

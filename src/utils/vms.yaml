@@ -1,3 +1,18 @@
+CTF-platform:
+  ip_address: 20.166.250.220
+  key_type: pem
+  password_or_key_path: ~/.ssh/Azure_PG_key.pem
+  username: zihuatanejo
+Git:
+  ip_address: 0.0.0.0
+  key_type: pem
+  password_or_key_path: ''
+  username: dev
+Overleaf:
+  ip_address: 57.153.172.156
+  key_type: pem
+  password_or_key_path: ~/.ssh/OverLeaf_key.pem
+  username: dev
 RocketChat:
   ip_address: 9.223.33.242
   key_type: pem
